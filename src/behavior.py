@@ -19,6 +19,14 @@ class GenericBehavior:
         response = [int(x) for x in number_to_convert]
         return response
 
+    def is_valid_number(self, number_guessed):
+        unique_values = []
+        converted_guess = self.convert_to(number_guessed)
+        for value in converted_guess:
+            if value not in unique_values:
+                unique_values.append(value)
+        return len(unique_values) == 4
+
 
 class HumanBehavior(GenericBehavior):
     """docstring for HumanBehavior"""
@@ -28,22 +36,27 @@ class HumanBehavior(GenericBehavior):
         self.final_guess = None
 
     def guess(self):
-        self.console_manager.print_out("Ingrese el numero a probar: ")
+        self.console_manager.print_out("Ingrese el número a probar: ")
         while True:
             number_guessed = self.console_manager.handle_input()
             if self.is_valid_number(number_guessed):
                 self.final_guess = number_guessed
                 return self.final_guess
             else:
-                self.console_manager.print_out("Numero no Válido. Pruebe Nuevamente")
+                self.console_manager.print_out("Número no Válido. Pruebe Nuevamente")
 
-    def is_valid_number(self, number_guessed):
-        unique_values = []
-        converted_guess = self.convert_to(number_guessed)
-        for value in converted_guess:
-            if value not in unique_values:
-                unique_values.append(value)
-        return len(unique_values) == 4
+    def think(self):
+        self.console_manager.print_out("Ingrese el número pensado")
+        while True:
+            number_thinked = self.console_manager.handle_input()
+            if self.is_valid_number(number_thinked):
+                self.final_number = number_thinked
+                return self.final_number
+            else:
+                self.console_manager.print_out("Número no Válido. Pruebe Nuevamente")
+
+    def verificate(self, number_guessed):
+        self.console_manager.print_out("Numero pensado: {0}{1}{2}{3}".format(*number_guessed))
 
 
 class ComputerBehavior(GenericBehavior):
