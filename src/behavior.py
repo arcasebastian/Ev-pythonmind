@@ -59,7 +59,6 @@ class ComputerBehavior(GenericBehavior):
             selected_numbers.append(new_number)
             numbers.remove(new_number)
         self.final_number = selected_numbers
-        self.console_manager.print_out(self.final_number)
 
     def select_number(self, numbers):
         chosen = random.choice(numbers)

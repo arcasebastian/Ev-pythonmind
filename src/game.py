@@ -18,5 +18,6 @@ gameend = False
 while not gameend:
     number_guessed = guesser.guess_number()
     thinker_response = thinker.verificate_number(number_guessed)
-    console_manager.print_out("Respuesta [G: {0} // R: {1}]".format(*thinker_response))
     gameend = is_correct(thinker_response)
+    console_manager.print_out("Respuesta [G: {0} // R: {1}]".format(*thinker_response))
+console_manager.print_out("//Juego Terminado//")
