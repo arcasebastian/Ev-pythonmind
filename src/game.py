@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from console import Console
-from factory import *
+from src.console import Console
+from src.factory import *
 
 
 class Game(object):
