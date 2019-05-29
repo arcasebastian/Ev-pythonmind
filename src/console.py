@@ -8,7 +8,8 @@ class Console(object):
 
     def print_menu(self):
         print("===== Menu =====")
-        print("PC-Humano (Modo Único)")
+        print("1 - PC-Humano")
+        print("2 - Humano-PC")
 
     def handle_input(self):
         human_input = input()

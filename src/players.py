@@ -14,6 +14,9 @@ class GenericPlayer:
     def verificate_number(self, guessed_number):
         return self.behavior.verificate(guessed_number)
 
+    def analize_response(self, response):
+        return self.behavior.analize(response)
+
 
 class HumanPlayer(GenericPlayer):
     def __init__(self):
