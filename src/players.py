@@ -1,30 +1,24 @@
-from behavior import *
+#!/usr/bin/python3
 
 
-class GenericPlayer:
+class GenericPlayer(object):
     def __init__(self):
         self.behavior = None
 
-    def guess_number(self):
-        return self.behavior.guess()
-
-    def think_number(self):
+    def think(self):
         return self.behavior.think()
 
-    def verificate_number(self, guessed_number):
-        return self.behavior.verificate(guessed_number)
-
-    def analize_response(self, response):
+    def analize(self, response):
         return self.behavior.analize(response)
 
 
 class HumanPlayer(GenericPlayer):
-    def __init__(self):
+    def __init__(self, behavior):
         super().__init__()
-        self.behavior = HumanBehavior()
+        self.behavior = behavior
 
 
 class ComputerPlayer(GenericPlayer):
-    def __init__(self):
+    def __init__(self, behavior):
         super().__init__()
-        self.behavior = ComputerBehavior()
+        self.behavior = behavior

@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+
 class Console(object):
     __instance = None
 
@@ -11,8 +14,8 @@ class Console(object):
         print("1 - PC-Humano")
         print("2 - Humano-PC")
 
-    def handle_input(self):
-        human_input = input()
+    def handle_input(self, prompt):
+        human_input = input(prompt)
         return human_input
 
     def print_out(self, text):
