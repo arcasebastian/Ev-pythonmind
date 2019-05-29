@@ -46,13 +46,22 @@ class HumanThinkerBehavior(GenericBehavior):
     def analize(self, response):
         digits = []
         self.console_manager.print_out("Numero adivinado: {}".format(response))
-        digits = self.correct_digits()
-        return digits
+        while True:
+            digits = self.correct_digits()
+            if self.valid_response(digits):
+                return digits
+            self.console_manager.print_out("Valor Incorrecto.")
 
     def correct_digits(self):
         digit_input = self.console_manager.handle_input("Ingrese la respuesta [G-R]: ")
-        response = self.convert_to(digit_input.split('-'))
+        try:
+            response = self.convert_to(digit_input.split('-'))
+        except ValueError:
+            response = [5, 0]
         return response
+
+    def valid_response(self, digits):
+        return (digits[0] + digits[1]) <= 4
 
 
 class HumanGuesserBehavior(GenericBehavior):

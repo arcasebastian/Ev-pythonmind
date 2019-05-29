@@ -1,16 +1,20 @@
+import abc
+
 from src.behavior import *
 from src.players import *
 
 
-class AbstractFactory(object):
+class AbstractFactory(metaclass=abc.ABCMeta):
     """docstring for AbstractFactory"""
 
     def __init__(self):
         super(AbstractFactory, self).__init__()
 
+    @abc.abstractmethod
     def give_thinker_player(self):
         pass
 
+    @abc.abstractmethod
     def give_guesser_player(self):
         pass
 

@@ -1,6 +1,12 @@
 import unittest
-from src.factory import PcVsHumanFactory, HumanVsPcFactory
+from src.factory import PcVsHumanFactory, HumanVsPcFactory, AbstractFactory
 from src.players import *
+
+
+class TestAbstractFactory(unittest.TestCase):
+
+    def test_no_instanciate(self):
+        self.assertRaises(TypeError, AbstractFactory)
 
 
 class TestPcVsHumanFactory(unittest.TestCase):
