@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import random
-from console import Console
+from src.console import Console
 
 
 class GenericBehavior(object):
@@ -84,7 +84,6 @@ class GenericComputerBehavior(GenericBehavior):
     def verificate(self, my_number, other_number):
         converted_number = self.convert_to(other_number)
         result = [0, 0]
-        print('{} {}'.format(my_number, converted_number))
         for i in range(0, 4):
             if converted_number[i] == my_number[i]:
                 result[0] += 1
@@ -124,15 +123,13 @@ class ComputerGuesserBehavior(GenericComputerBehavior):
         self.response_history = []
 
     def think(self):
-        print(self.guess_history)
-        print(self.response_history)
         if self.is_first_guess:
             self.is_first_guess = False
             self.last_valid_guess = '0123'
         else:
             my_guess = self.do_guesses()
             self.last_valid_guess = my_guess
-        self.guess_history.append(self.convert_to(my_guess))
+        self.guess_history.append(self.convert_to(self.last_valid_guess))
         return self.last_valid_guess
 
     def do_guesses(self):

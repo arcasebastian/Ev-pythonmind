@@ -1,5 +1,5 @@
-from behavior import *
-from players import *
+from src.behavior import *
+from src.players import *
 
 
 class AbstractFactory(object):
